@@ -1,0 +1,47 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>User List</h2>
+
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#Serial Id</th>
+            <th>Username</th>
+            <th>Email</th>
+<!--            <th>Address</th>-->
+<!--            <th>IsActive</th>-->
+            <th>IsStaff</th>
+            <th>Group</th>
+            <th>Role</th>
+<!--            <th>IsTeacher</th>-->
+<!--            <th>IsAdmin</th>-->
+<!--            <th>Group</th>-->
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users | async">
+    
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+<!--            <td>{{user.address}}</td>-->
+<!--            <td>{{user.is_active}}</td>-->
+            <td>{{user.is_staff}}</td>
+            <td>{{user.groups}}</td>
+            <td>{{user.role}}</td>
+<!--            <td>{{user.is_student}}</td>-->
+<!--            <td>{{user.is_Teacher}}</td>-->
+<!--            <td>{{user.is_superuser}}</td>-->
+<!--            <td>{{user.groups}}</td>-->
+            <td><button (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button>
+              <button (click)="updateUser(user.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+              <button (click)="userDetails(user.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

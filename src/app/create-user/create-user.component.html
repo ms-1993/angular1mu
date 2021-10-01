@@ -1,0 +1,69 @@
+<h3>Create User</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">UserName</label>
+      <input type="text" class="form-control" id="username" required [(ngModel)]="user.username" name="username">
+    </div>
+<!--      <div class="form-group">-->
+<!--      <label for="address">Addres</label>-->
+<!--      <input type="text" class="form-control" id="address" required [(ngModel)]="user.address" name="address">-->
+<!--    </div>-->
+
+    <div class="form-group">
+      <label for="email">Email Id</label>
+      <input type="email" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+    </div>
+
+
+    <div class="form-group">
+      <label for="is_staff">Staff</label>
+      <input type="checkbox" class="form-check-input" id="is_staff" required [(ngModel)]="user.is_staff" name="is_staff">
+    </div>
+<!--    <div class="form-group">-->
+<!--      <label for="is_student">Student</label>-->
+<!--      <input type="checkbox" class="form-check-input" id="is_student" required [(ngModel)]="user.is_student" name="is_student">-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="is_Teacher">Teacher</label>-->
+<!--      <input type="checkbox" class="form-check-input" id="is_Teacher" required [(ngModel)]="user.is_Teacher" name="is_Teacher">-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--      <label for="is_active">Active</label>-->
+<!--      <input type="checkbox" class="form-check-input" id="is_active" required [(ngModel)]="user.is_active" name="is_active">-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--      <label for="is_superuser">Hod</label>-->
+<!--      <input type="checkbox" class="form-check-input" id="is_superuser" required [(ngModel)]="user.is_superuser" name="is_superuser">-->
+<!--    </div>-->
+
+      <div class="form-group">
+      <label for="role">Role</label>
+      <select id="role" name="role" [(ngModel)]="user.role" class="form-control">
+        <option *ngFor="let role of Rolleslist " value="{{role.id}}" > {{role.user_in_role}}</option>
+      </select>
+    </div>
+
+      <div class="form-group">
+      <label for="groups">Group</label>
+      <select id="groups" name="groups" [(ngModel)]="user.groups" class="form-control">
+        <option *ngFor="let group of Groupslist" [value]=[group.id] > {{group.id }}</option>
+      </select>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button class="btn btn-success" (click)="newUser()">Add</button>
+</div>
